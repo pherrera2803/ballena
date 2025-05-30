@@ -46,6 +46,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
+
+      - name: Verify Azure App Service DNS
+        run: nslookup ballenas-landing-h8dxhtd5cfcqbyf7.eastus-01.azurewebsites.net
+        
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
